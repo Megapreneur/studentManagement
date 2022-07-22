@@ -11,7 +11,7 @@ import java.util.List;
 public interface StudentService {
     AddStudentResponse addStudent(AddStudentRequest request);
     public List<Student> getAllStudents();
-    DeleteStudentResponse deleteStudent(DeleteStudentRequest request);
+    public  void deleteStudent(String studentID);
 
 
 

@@ -7,6 +7,7 @@ import com.semicolon.studentmanagement.dto.requests.DeleteStudentRequest;
 import com.semicolon.studentmanagement.dto.response.AddStudentResponse;
 import com.semicolon.studentmanagement.dto.response.DeleteStudentResponse;
 import com.semicolon.studentmanagement.exception.StudentAlreadyExistException;
+import com.semicolon.studentmanagement.exception.StudentIDIsInvalidException;
 import com.semicolon.studentmanagement.model.data.Student;
 import com.semicolon.studentmanagement.model.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +48,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public DeleteStudentResponse deleteStudent(DeleteStudentRequest request) {
-        return response;
+    public void deleteStudent(String studentID) {
+        Student student = studentRepository.findByStudentId(studentID);
+        if (student == null){
+            throw new StudentIDIsInvalidException("No student has is assigned to this StudentId");
+        }
+        studentRepository.delete(student);
     }
 
 

@@ -2,7 +2,9 @@ package com.semicolon.studentmanagement.controller;
 
 
 import com.semicolon.studentmanagement.dto.requests.AddStudentRequest;
+import com.semicolon.studentmanagement.dto.requests.DeleteStudentRequest;
 import com.semicolon.studentmanagement.dto.response.AddStudentResponse;
+import com.semicolon.studentmanagement.dto.response.DeleteStudentResponse;
 import com.semicolon.studentmanagement.model.data.Student;
 import com.semicolon.studentmanagement.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +28,8 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
-    @DeleteMapping( "/delete")
-    public void deleteStudent(@RequestBody Student studentID){
+    @DeleteMapping(path = "/delete/{studentID}")
+    public void deleteStudent(@PathVariable("studentID") String studentID){
         studentService.deleteStudent(studentID);
     }
 
