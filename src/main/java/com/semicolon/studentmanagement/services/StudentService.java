@@ -9,6 +9,9 @@ import java.util.List;
 public interface StudentService {
     AddStudentResponse addStudent(AddStudentRequest request);
     public List<Student> getAllStudents();
+    public void deleteStudent(Student studentID);
+
+
 
 
 
