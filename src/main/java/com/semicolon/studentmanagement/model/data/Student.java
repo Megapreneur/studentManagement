@@ -19,13 +19,13 @@ public class Student {
     private String name;
     @NonNull
     private String email;
-//    @NonNull
-//    private LocalDate dob;
-//    @Transient
-//    private int age;
+    @NonNull
+    private LocalDate dob;
+    @Transient
+    private int age;
     @NonNull
     private String address;
-    private String studentID;
+    private String studentId;
 
 
 //    public int getAge() {

@@ -29,12 +29,12 @@ public class StudentServiceImpl implements StudentService {
         Mapper.map(request, newStudent);
         String studentID = String.valueOf(UUID.randomUUID().getMostSignificantBits());
         studentID = "ST"+studentID.substring(1, 4);
-        newStudent.setStudentID(studentID);
+        newStudent.setStudentId(studentID);
 
-        if (studentRepository.existsByStudentID(newStudent.getStudentID())){
+        if (studentRepository.existsByStudentId(newStudent.getStudentId())){
             String studentID1;
             studentID1 = "ST"+studentID.substring(1, 4);
-            newStudent.setStudentID(studentID1);
+            newStudent.setStudentId(studentID1);
         }
         Student savedStudent = studentRepository.save(newStudent);
         AddStudentResponse response = new AddStudentResponse();
@@ -48,8 +48,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(String studentID) {
-        Student student = studentRepository.findByStudentId(studentID);
+    public void deleteStudent(String studentId) {
+        Student student = studentRepository.findByStudentId(studentId);
         if (student == null){
             throw new StudentIDIsInvalidException("No student has is assigned to this StudentId");
         }
