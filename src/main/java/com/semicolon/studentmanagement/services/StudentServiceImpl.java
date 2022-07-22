@@ -3,7 +3,9 @@ package com.semicolon.studentmanagement.services;
 
 import com.semicolon.studentmanagement.Mapper.Mapper;
 import com.semicolon.studentmanagement.dto.requests.AddStudentRequest;
+import com.semicolon.studentmanagement.dto.requests.DeleteStudentRequest;
 import com.semicolon.studentmanagement.dto.response.AddStudentResponse;
+import com.semicolon.studentmanagement.dto.response.DeleteStudentResponse;
 import com.semicolon.studentmanagement.exception.StudentAlreadyExistException;
 import com.semicolon.studentmanagement.model.data.Student;
 import com.semicolon.studentmanagement.model.repository.StudentRepository;
@@ -45,9 +47,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(Student studentID) {
-        studentRepository.delete(studentID);
+    public DeleteStudentResponse deleteStudent(DeleteStudentRequest request) {
+        return response;
     }
+
+
 
 
 }
