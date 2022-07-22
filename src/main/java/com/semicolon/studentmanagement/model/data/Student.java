@@ -2,11 +2,9 @@ package com.semicolon.studentmanagement.model.data;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -23,11 +21,15 @@ public class Student {
     private String email;
     @NonNull
     private LocalDate dob;
-    @NonNull
+    @Transient
     private int age;
     @NonNull
     private String address;
     private String studentID;
 
 
+    public int getAge() {
+        return Period.between(this.dob, LocalDate.now()).getYears();
+    }
+    public void setAge(int age){this.age = age;}
 }

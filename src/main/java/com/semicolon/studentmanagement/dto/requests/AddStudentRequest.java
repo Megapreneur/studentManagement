@@ -1,17 +1,21 @@
 package com.semicolon.studentmanagement.dto.requests;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AddStudentRequest {
+    @NonNull
     private String name;
+    @NonNull
     private String email;
-    private String dob;
+    @NonNull
+    private LocalDate dob;
     private int age;
+    @NonNull
     private String address;
 }
