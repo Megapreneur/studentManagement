@@ -13,9 +13,9 @@ public class AddStudentRequest {
     private String name;
     @NonNull
     private String email;
-    @NonNull
-    private LocalDate dob;
-    private int age;
+//    @NonNull
+//    private LocalDate dob;
     @NonNull
     private String address;
+//    private int age;
 }
