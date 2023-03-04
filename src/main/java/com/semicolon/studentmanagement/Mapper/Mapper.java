@@ -10,9 +10,9 @@ public class Mapper {
     public static void map(AddStudentRequest request, Student newStudent) {
         newStudent.setName(request.getName());
         newStudent.setAddress(request.getAddress());
-        newStudent.setDob(request.getDob());
+//        newStudent.setDob(request.getDob());
         newStudent.setEmail(request.getEmail());
-        newStudent.setAge(request.getAge());
+//        newStudent.setAge(request.getAge());
     }
 
     public static void map(Student savedStudent, AddStudentResponse response) {

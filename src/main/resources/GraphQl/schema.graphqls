@@ -1,0 +1,11 @@
+type Student {
+    Id: ID!
+    name: String
+    email: String
+    address: String!
+    studentId: String
+}
+
+type Query {
+    getAllStudents(page: Int, size: Int): [Student]
+}

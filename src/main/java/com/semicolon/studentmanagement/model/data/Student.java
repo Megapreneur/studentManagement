@@ -20,16 +20,6 @@ public class Student {
     @NonNull
     private String email;
     @NonNull
-    private LocalDate dob;
-    @Transient
-    private int age;
-    @NonNull
     private String address;
     private String studentId;
-
-
-//    public int getAge() {
-//        return Period.between(this.dob, LocalDate.now()).getYears();
-//    }
-//    public void setAge(int age){this.age = age;}
 }

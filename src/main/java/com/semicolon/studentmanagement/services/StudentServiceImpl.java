@@ -11,6 +11,8 @@ import com.semicolon.studentmanagement.exception.StudentIDIsInvalidException;
 import com.semicolon.studentmanagement.model.data.Student;
 import com.semicolon.studentmanagement.model.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,9 +45,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
+    public Page<Student> getAllStudents(int page, int size) {
+        PageRequest pr = PageRequest.of(page, size);
+        return studentRepository.findAll(pr);
     }
+
+//    get all the students in a class
 
     @Override
     public void deleteStudent(String studentId) {
